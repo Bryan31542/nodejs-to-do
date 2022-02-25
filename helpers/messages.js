@@ -29,21 +29,21 @@ const showMenu = () => {
   });
 };
 
-const pause = () => {
-  return new Promise((resolve) => {
-    const readline = require("readline").createInterface({
-      input: process.stdin,
-      output: process.stdout,
-    });
+// const pause = () => {
+//   return new Promise((resolve) => {
+//     const readline = require("readline").createInterface({
+//       input: process.stdin,
+//       output: process.stdout,
+//     });
 
-    readline.question(`Presione ${"ENTER".green} para continuar`, (opt) => {
-      readline.close();
-      resolve();
-    });
-  });
-};
+//     readline.question(`Presione ${"ENTER".green} para continuar`, (opt) => {
+//       readline.close();
+//       resolve();
+//     });
+//   });
+// };
 
 module.exports = {
   showMenu,
-  pause,
+//   pause,
 };
