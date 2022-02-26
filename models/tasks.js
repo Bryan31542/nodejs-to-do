@@ -58,7 +58,7 @@ class Tasks {
         if (completed) {
           counter++;
           console.log(
-            `${counter + ".".green} ${description} :: ${completed}`.green
+            `${counter + ".".green} ${description} :: ${completed.green}`
           );
         }
       } else {
@@ -66,6 +66,23 @@ class Tasks {
           counter++;
           console.log(`${counter + ".".green} ${description} :: ${status}`);
         }
+      }
+    });
+  }
+
+  toggleCompleted(ids = []) {
+    // Marcando tareaas completadas, incluyendo fecha
+    ids.forEach((id) => {
+      const task = this._list[id];
+      if (!task.completed) {
+        task.completed = new Date().toISOString();
+      }
+    });
+
+    // Limpiando los que no esten marcados
+    this.list.forEach((task) => {
+      if (!ids.includes(task.id)) {
+        this._list[task.id].completed = null;
       }
     });
   }
