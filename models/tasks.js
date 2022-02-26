@@ -39,6 +39,30 @@ class Tasks {
       console.log(`${i}. ${description} :: ${status}`);
     });
   }
+
+  showPendingCompleted(checked = true) {
+    console.log("");
+    let counter = 0;
+    this.list.forEach((task) => {
+      const { description, completed } = task;
+      const status = completed ? "Completada".green : "Pendiente".red;
+
+      if (checked) {
+        // Mostrar completadas
+        if (completed) {
+          counter++;
+          console.log(
+            `${counter + ".".green} ${description} :: ${completed}`.green
+          );
+        }
+      } else {
+        if (!completed) {
+          counter++;
+          console.log(`${counter + ".".green} ${description} :: ${status}`);
+        }
+      }
+    });
+  }
 }
 
 module.exports = Tasks;
